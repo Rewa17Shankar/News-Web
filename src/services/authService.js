@@ -1,13 +1,6 @@
 // authService.js
-import { 
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-  signOut,
-  signInAnonymously,
-  updateProfile
-} from "firebase/auth";
+import {   createUserWithEmailAndPassword,  signInWithEmailAndPassword,  signInWithPopup,  GoogleAuthProvider,  signOut,
+  signInAnonymously,  updateProfile} from "firebase/auth";
 import { auth } from "../firebase/Firebase";
 
 const signup = async (email, password, name, photoURL) => {
