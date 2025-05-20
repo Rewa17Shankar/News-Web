@@ -254,7 +254,7 @@ function News({ user }) {
 
       try {
         const response = await fetch(
-          `http://api.mediastack.com/v1/news?access_key=${apiKey}&countries=us&limit=${limit}&offset=${(page - 1) * limit}`
+          `https://api.mediastack.com/v1/news?access_key=${apiKey}&countries=us&limit=${limit}&offset=${(page - 1) * limit}`
         );
 
         const data = await response.json();
