@@ -237,15 +237,12 @@ function News({ user }) {
   const navigate = useNavigate();
 
   const [news, setNews] = useState([]);
-  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [hasMore, setHasMore] = useState(true);
-
   const [likedPosts, setLikedPosts] = useState([]);
   const [savedPosts, setSavedPosts] = useState([]);
 
-  const limit = 40; // Fetch 40 articles per call
+  const limit = 10; // Show only top 10 headlines
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -254,16 +251,14 @@ function News({ user }) {
 
       try {
         const response = await fetch(
-          `https://api.mediastack.com/v1/news?access_key=${apiKey}&countries=us&limit=${limit}&offset=${(page - 1) * limit}`
+          `https://api.mediastack.com/v1/news?access_key=${apiKey}&countries=in&limit=${limit}&categories=general`
         );
 
         const data = await response.json();
 
         if (!data.data) throw new Error(data.error?.message || "Error fetching news");
 
-        setNews((prev) => [...prev, ...data.data]);
-
-        if (data.data.length < limit) setHasMore(false);
+        setNews(data.data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -272,7 +267,7 @@ function News({ user }) {
     };
 
     fetchNews();
-  }, [page, apiKey]);
+  }, [apiKey]);
 
   useEffect(() => {
     if (!user) {
@@ -367,7 +362,7 @@ function News({ user }) {
 
   return (
     <div style={{ padding: "1rem" }}>
-      <h1>Latest News</h1>
+      <h1>Top Headlines in India</h1>
 
       {news.length === 0 && !loading && <p>No news found.</p>}
 
@@ -387,7 +382,7 @@ function News({ user }) {
               <img
                 src={article.image}
                 alt={article.title}
-                style={{ maxWidth: "100%", borderRadius: "4px" }}
+                style={{ maxWidth: "100%", height: "200px", objectFit: "cover", borderRadius: "4px" }}
               />
             )}
             <p>{article.description}</p>
@@ -437,14 +432,6 @@ function News({ user }) {
 
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
       {loading && <p>Loading...</p>}
-
-      {!loading && hasMore && (
-        <button onClick={() => setPage((prev) => prev + 1)} style={{ padding: "0.5rem 1rem" }}>
-          Load More
-        </button>
-      )}
-
-      {!hasMore && <p>No more articles to load.</p>}
     </div>
   );
 }

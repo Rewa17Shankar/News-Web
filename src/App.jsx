@@ -9,6 +9,7 @@ import Login from './component/Login'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
 import About from './pages/About'
+import AllNews from './component/AllNews'
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/contact" element= {<Contact/>} />
             <Route path="/about" element={<About/>} />
+            <Route path='/allnews' element={<AllNews/>} />
           </Routes>
         </main>
 

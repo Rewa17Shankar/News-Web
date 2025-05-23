@@ -44,7 +44,7 @@ function Navbar() {
         {/* Links and search */}
         <div className="flex items-center space-x-6">
           <Link to="/" className="text-gray-700 hover:text-blue-600 transition">
-            Home
+            Headline
           </Link>
           <Link to="/about" className="text-gray-700 hover:text-blue-600 transition">
             About Us
@@ -52,11 +52,11 @@ function Navbar() {
           <Link to="/contact" className="text-gray-700 hover:text-blue-600 transition">
             Contact Us
           </Link>
-          <input
-            type="text"
-            placeholder="Search here..."
-            className="border border-gray-300 rounded-full px-3 py-1.5 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
+          <Link to="/allnews" className="text-gray-700 hover:text-blue-600 transition">
+            All News
+          </Link>
+
+          
         </div>
 
         {/* Login/Signup or User Info */}
