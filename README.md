@@ -1,6 +1,6 @@
 Link to visit my app:-
 
-https://news-web-l1kk.vercel.app/
+https://news-web-r1hd.vercel.app/
 
 
 # React + Vite
