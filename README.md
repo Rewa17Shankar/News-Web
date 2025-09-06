@@ -2,7 +2,7 @@
 
 A modern, responsive news web application built with **React + Vite** that delivers real-time news articles and weather updates. Features Firebase authentication for personalized user experience and integrates multiple APIs for comprehensive information delivery.
 
-## 🚀 Features
+## 🚀 Features..
 
 ### 📱 Core Functionality
 - **Real-Time News Feed** - Latest news articles from multiple sources via NewsAPI
